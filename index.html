@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    uafouo
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="icon">Expense Tracker</h1>
+    </header>
+    <main>
+      <section class="dashboard">
+        <div>
+            <h2>Total balance</h2>
+            <span class="balance"> $0.00 </span>
+        </div>
+      
+          <div>
+                <h2>income</h2>
+                <span class="income-balance">$0.00 </span>
+          </div>
+          <div>
+                <h2>Expense</h2>
+                <span class="expense-balnace">$0.00 </span>
+            </div>
+       
+      </section>
+      <div class="transaction_record">
+        <h2>Transactions</h2>
+        <p id="status"></p>
+          <ul class="transactonList">
+            <li class="listItem"></li>
+          </ul>
+      </div>
+      <div>
+        <h2>Add Transaction</h2>
+        <form id="t-form" action="">
+           
+             <label for="name">Name</label>
+            <input class="name-input-js" type="text" placeholder="name" >
+        
+            
+           <div class="form-div">
+             <div>
+                <label for="Amount">Amount</label>
+                <input  type="number"  placeholder="0" class="amount-input-js">
+            </div>
+            <div>
+                <label for="date">Date</label>
+                <input  type="date" class="date-input-js">
+           </div>
+           </div>
+          
+          <button type="button" class="submit-btn">Submit</button>
+        </form>
+      </div>
+    </main>
+    <script src="/script/script.js"></script>
+  </body>
 </html>

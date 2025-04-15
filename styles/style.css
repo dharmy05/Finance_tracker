@@ -1,0 +1,145 @@
+css reset * {
+  padding: 0;
+  margin: 0;
+}
+
+/* Variables */
+:root {
+  /* background color */
+  --BG-COLOR: rgba(0, 64, 255, 0.971);
+  --MAIN-BG-COLOR: #fff;
+
+  /* border */
+  --BORDER-RADIUS: 5px;
+
+  /* FONT */
+  --FONT: sanserif;
+  --FONT-COLOR: #fff;
+  --FONT-SIZE: 2.7em;
+  --FONT-WEIGHT: bold;
+
+  /* FORM */
+
+  /* FONT */
+  --FORM-FT-SIZE: 1.2em;
+
+  /* BUTTON */
+  --BTN-BG-COLOR: rgba(0, 64, 255, 0.971);
+}
+
+/* utility classes */
+h2 {
+  font-size: 15px;
+}
+span.balance {
+  font-size: var(--FONT-SIZE);
+  font-weight: var(--FONT-WEIGHT);
+}
+header {
+  text-align: center;
+}
+ul {
+  padding: 0;
+
+}
+li {
+  list-style-type: none;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  /* gap: 1rem; */
+}
+button {
+  width: 100%;
+  background-color: var(--BTN-BG-COLOR);
+  color: #fff;
+  padding: 0.5rem;
+  font-size: 1em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--BORDER-RADIUS);
+  /* box-shadow: ; */
+}
+
+body {
+  background-color: rgba(239, 225, 225, 0.399);
+  /* min-height: 100vh; */
+}
+
+main {
+  background-color: var(--MAIN-BG-COLOR);
+  box-shadow: 0px 5px 5px grey;
+  padding: 20px;
+  border-radius: var(--BORDER-RADIUS);
+}
+
+/* dashboard design */
+
+.dashboard {
+  background-color: var(--BG-COLOR);
+  display: grid;
+  color: #fff;
+  padding: 1rem;
+  border-radius: var(--BORDER-RADIUS);
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows:1fr 1fr 1fr; */
+  white-space: nowrap;
+  gap: 0.2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.dashboard div:first-child {
+  width: 100%;
+  grid-column: 1/4;
+}
+.dashboard div:nth-child(2) {
+  grid-column: 1/2;
+}
+.dashboard div:nth-child(3) {
+  grid-column: 3/4;
+}
+
+.income,
+.expense {
+  font-size: 1.5rem;
+  font-weight: var(--FONT-WEIGHT);
+}
+
+/* form styles */
+form {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+}
+label {
+  font-size: var(--FORM-FT-SIZE);
+}
+input {
+  width: 100%;
+  height: 5vh;
+  border: 1px solid grey;
+  border-radius: var(--BORDER-RADIUS);
+  margin: 0 0 20px;
+  font-size: var(--FORM-FT-SIZE);
+  /* font-weight: var(--FONT-WEIGHT); */
+}
+.form-div {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Transactiion list */
+#status{
+  text-align: center;
+}
+/* 
+.amount {
+
+} */
+.amount.income{
+  color:greenyellow
+}
+.amount.expense{
+  color:indianred;
+}
