@@ -36,19 +36,27 @@
       </div>
       <div>
         <h2>Add Transaction</h2>
-        <form id="t-form" action="">
+        <form id="form" action="">
+           <div>
+            <label for="type" id="type">
+              <input type="checkbox" name="type" id="type">
+              <div class="options">
+                <span>Income</span>
+                <span>Expense</span>
+              </div>
+           </div>
            
-             <label for="name">Name</label>
+             <label for="name" id="name">
             <input class="name-input-js" type="text" placeholder="name" >
         
             
            <div class="form-div">
              <div>
-                <label for="Amount">Amount</label>
+                <label for="amount" id="amount">Amount</label>
                 <input  type="number"  placeholder="0" class="amount-input-js">
             </div>
             <div>
-                <label for="date">Date</label>
+                <label for="date" id="date">Date</label>
                 <input  type="date" class="date-input-js">
            </div>
            </div>

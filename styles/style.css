@@ -1,4 +1,5 @@
-css reset * {
+/* css reset */
+ * {
   padding: 0;
   margin: 0;
 }
@@ -67,18 +68,20 @@ body {
 }
 
 main {
-  background-color: var(--MAIN-BG-COLOR);
+  /* background-color: var(--MAIN-BG-COLOR); */
+  background-color: #000;
   box-shadow: 0px 5px 5px grey;
   padding: 20px;
   border-radius: var(--BORDER-RADIUS);
 }
 
 /* dashboard design */
-
+.dashboard, label:not(#type), h2,.date{
+  color: #fff;
+}
 .dashboard {
   background-color: var(--BG-COLOR);
   display: grid;
-  color: #fff;
   padding: 1rem;
   border-radius: var(--BORDER-RADIUS);
   grid-template-columns: 1fr 1fr 1fr;
@@ -87,6 +90,8 @@ main {
   gap: 0.2rem;
   text-align: center;
   text-transform: uppercase;
+  margin-bottom: 1rem;
+  /* box-shadow: 0px 5px 50px #000; */
 }
 
 .dashboard div:first-child {
@@ -111,10 +116,12 @@ form {
   padding: 0.5rem 1rem;
   text-transform: uppercase;
 }
+
 label {
   font-size: var(--FORM-FT-SIZE);
+  font-size: 0.9rem;
 }
-input {
+form input:not(#type) {
   width: 100%;
   height: 5vh;
   border: 1px solid grey;
@@ -129,17 +136,61 @@ input {
   width: 100%;
 }
 
-/* Transactiion list */
-#status{
-  text-align: center;
+input#type{
+  appearance: none;
+  position: absolute;
+  /* background-color: grey; */
 }
+.options{
+  display: flex;
+  place-content: center;
+  padding: 10px;
+  /* border: 1px solid #000; */
+  position: relative;
+  border-radius: var(--BORDER-RADIUS);
+  background-color: #eee;
+  margin-bottom: 1rem;
+}
+.options span{
+  cursor: pointer;
+  align-items: center;
+  width: 50%;
+  z-index: 2;
+}
+.options::before{
+  content: "";
+  position: absolute;
+  top: 5px;
+  bottom: 0;
+  height: calc(100% - 10px);
+  width:calc(50% -10px);
+  transform:translateX(5px);
+  border-radius:inherit;
+  box-shadow: 0 2px 2px #000;
+  transition: all 200ms;
+  background-color: #fff;
+}
+input#type:checked ~ .options::before{
+  left: 50%;
+}
+/* Transactiion list */
 /* 
 .amount {
-
+  
 } */
+ .name-h2{
+  text-transform: uppercase;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+
+ }
 .amount.income{
   color:greenyellow
 }
 .amount.expense{
   color:indianred;
+}
+
+#status{
+  text-align: center;
 }
