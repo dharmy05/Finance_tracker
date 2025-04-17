@@ -2,6 +2,8 @@
  * {
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
+  
 }
 
 /* Variables */
@@ -32,26 +34,51 @@
 h2 {
   font-size: 15px;
 }
+div h2{
+  margin-top: 20px;
+}
+ h4{
+  text-transform: uppercase;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+ }
 span.balance {
   font-size: var(--FONT-SIZE);
   font-weight: var(--FONT-WEIGHT);
 }
 header {
   text-align: center;
+  position: fixed;
+  top: 0;
+  background-color: #ffffffcb;
+  width: 100%;
 }
 ul {
-  padding: 0;
+  list-style-type: none;
 
 }
-li {
-  list-style-type: none;
+ul li {
+  /* list-style-type: none;
   margin: 10px;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 1fr; */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 5px 10px;
+  position: relative;
   /* gap: 1rem; */
 }
+
+.name{
+  color: #fff;
+  flex: 1;
+}
+.name p{
+  font-size: 0.8rem;
+  color: #a29e9e;
+}
 button {
-  width: 100%;
   background-color: var(--BTN-BG-COLOR);
   color: #fff;
   padding: 0.5rem;
@@ -61,6 +88,7 @@ button {
   border-radius: var(--BORDER-RADIUS);
   /* box-shadow: ; */
 }
+
 
 body {
   background-color: rgba(239, 225, 225, 0.399);
@@ -85,13 +113,11 @@ main {
   padding: 1rem;
   border-radius: var(--BORDER-RADIUS);
   grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-rows:1fr 1fr 1fr; */
   white-space: nowrap;
   gap: 0.2rem;
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 1rem;
-  /* box-shadow: 0px 5px 50px #000; */
 }
 
 .dashboard div:first-child {
@@ -122,6 +148,7 @@ label {
   font-size: 0.9rem;
 }
 form input:not(#type) {
+  padding: 5px 0px;
   width: 100%;
   height: 5vh;
   border: 1px solid grey;
@@ -133,6 +160,11 @@ form input:not(#type) {
 .form-div {
   display: flex;
   gap: 1rem;
+  width: 100%
+}.form-div div{
+  width: 50%;
+}
+.submit-btn{
   width: 100%;
 }
 
@@ -174,23 +206,44 @@ input#type:checked ~ .options::before{
   left: 50%;
 }
 /* Transactiion list */
-/* 
-.amount {
-  
-} */
- .name-h2{
-  text-transform: uppercase;
-  padding: 0.5rem;
-  font-size: 0.9rem;
 
- }
+.amount {
+  font-weight: 600;
+  margin-right: 10px;
+}
+
 .amount.income{
-  color:greenyellow
+  color:greenyellow;
 }
 .amount.expense{
   color:indianred;
 }
+.amount.expense,.delete-btn, .amount.income:hover{
+  cursor: pointer;
+}
+.delete-btn:hover{
+  transform: translateX(-3px);
+  transition:ease-in-out 0.8s ;
+  /* transition-duration: s; */
+}
+.delete-btn{
+  background-color: indianred;
+  margin: 0;
+ /* transform: translateX(30px); */
+ width: 25px;
+ height: 25px;
+ border-radius:50% ;
+ padding: 0;
+}
+
+/* .delete-btn::before{
+  content: "";
+  transform: translateX(20px);
+  width: 20px;
+} */
 
 #status{
+  color: indianred;
   text-align: center;
+  margin: 10px 0;
 }

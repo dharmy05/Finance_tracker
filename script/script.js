@@ -1,13 +1,11 @@
-const listItem = document.querySelector(".listItem");
-
 const balance = document.querySelector(".balance");
 const expense = document.querySelector(".expense");
 const transactionRecord = document.querySelector(".transaction_record");
 const submitBtn = document.querySelector(".submit-btn");
-const ulListItem = document.querySelector(".transactonList");
+const list = document.querySelector(".transactonList");
 const transactionStatus = document.querySelector("#status");
-const form = document.querySelector("#form")
-console.log(form)
+const form = document.querySelector("#form");
+// const li = document.querySelector(".li")
 
 const transaction = [
   {
@@ -42,51 +40,73 @@ const currencyFormatter = new Intl.NumberFormat("en-US", {
 });
 
 // Date format
-const dateFormat = new Intl.DateTimeFormat('en-GB',{
+const dateFormat = new Intl.DateTimeFormat("en-GB", {
   year: "numeric",
   month: "2-digit",
-  day:"2-digit"
-})
+  day: "2-digit",
+});
 
+// function to render transactions
 const renderList = () => {
+  list.innerHTML = ``;
   if (transaction.length === 0) {
     transactionStatus.textContent = "No transactions";
     return;
   }
- 
 
   transaction.forEach(({ id, name, amount, date, type }) => {
-    listItem.innerHTML += `
+    const li = document.createElement("li");
+    li.innerHTML = `
     <div class="name">
-    <h2 class="name-h2">${name}</h2>
-    <p class='date'>${dateFormat.format(date)}</p>
+      <h4>${name}</h4>
+      <p class='date'>${dateFormat.format(date)}</p>
     </div>
-      <div class="amount">
-     <h2>${currencyFormatter.format(amount)}</h2>
-    //  <span class></span>
-    //  <span></span>
+
+      <div class="amount ${type}">
+        ${currencyFormatter.format(amount)}</span>
+      </div>
+
+    <div>
+      <button type="button" class=" delete-btn">X</button>
     </div>
 `;
+
+    list.appendChild(li);
+  });
+
+  const deleteBtn = document.querySelector(".delete-btn");
+  deleteBtn.addEventListener("click", (id) => {
+    const index = transaction.findIndex((trx) => trx.id == id);
+    transaction.splice(index, 1);
+    renderList();
   });
 };
 
 const addTransactions = () => {
- const formData = new FormData(this)
+  const formData = new FormData(this);
 
-  transaction.push[{
-    id: transaction.length + 1,
-    name: formData.get('name'),
-    amount: parseFloat(formData.get('amount')),
-    date: new date(formData.get('date')),
-    type:"on"=== formData.get('type') ? "income":"expense"
- }]
-  this.reset()
-  renderList()
-}
+  transaction.push[
+    {
+      id: transaction.length + 1,
+      name: formData.get("name"),
+      amount: parseFloat(formData.get("amount")),
+      date: new date(formData.get("date")),
+      type: "on" === formData.get("type") ? "income" : "expense",
+    }
+  ];
+  this.reset();
+  renderList();
+};
+
+const deleteTransactions = (id) => {
+  // const index = transaction.findIndex((trx) =>
+  //   trx.id === id);
+  // transaction.splice(index, 1);
+  // renderList();
+};
 
 form.addEventListener("submit", function (e) {
-  e.preventDefault()
-  addTransactions()
-})
+  e.preventDefault();
+  addTransactions();
+});
 submitBtn.addEventListener("click", renderList());
-
